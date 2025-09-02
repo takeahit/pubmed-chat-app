@@ -49,7 +49,7 @@ def summarize_with_gpt(text):
         ],
         temperature=0.3
     )
-    return response.choices[0].message["content"]
+    return response.choices[0].message.content
 
 st.set_page_config(page_title="PubMed Chat検索", page_icon="🔎")
 st.title("🔎 PubMed Chat検索サービス")
