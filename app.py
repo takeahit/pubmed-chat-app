@@ -1,3 +1,5 @@
+from openai import OpenAI
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 import requests
 import xml.etree.ElementTree as ET
@@ -41,7 +43,7 @@ def efetch(pmids):
     return results
 
 def summarize_with_gpt(text):
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "あなたは医学に詳しいアシスタントです。"},
