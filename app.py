@@ -1,15 +1,14 @@
-from openai import OpenAI
-client = OpenAI(api_key=OPENAI_API_KEY)
-
 import requests
 import xml.etree.ElementTree as ET
 import streamlit as st
-import openai
+from openai import OpenAI  # ← 新しいSDKの書き方
 
 # --- SecretsからAPIキーを取得 ---
 PUBMED_API_KEY = st.secrets["PUBMED_API_KEY"]
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 openai.api_key = OPENAI_API_KEY
+
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 
